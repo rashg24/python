@@ -32,5 +32,249 @@ print("Line 1-Value of c is",c)
 c=a|b;
 print("Line 2-Value of c is",c)
 
+import numpy as np # type: ignore
+r1 = int(input("Enter no of rows of the matrix: "))
+c1 = int(input("Enter no of columns of the matrix: "))
+r2 = int(input("Enter no of rows of the matrix: "))
+c2 = int(input("Enter no of columns of the matrix: "))
+
+print(f"Give {r1*c1} values for matrix 1: ")
+
+row = []
+array1 = []
+array2 = []
+
+#for array 1
+for i in range(c1):
+    for j in range(r1):
+        row.append(int(input("")))
+    array1.append(row)
+    row = []
+m1 = np.array(array1)
+print(m1)
+#for array 2
+
+print(f"Give {r1*c1} values for matrix 1: ")
+for i in range(c2):
+    for j in range(r2):
+        row.append(int(input("")))
+    array2.append(row)
+    row = []
+m2 = np.array(array2)
+print(m2)
+
+op = input("Enter the operation you want to perform(+,-,*): ")
+result = 0
+if op == '+':
+    if r1 == r2 and c1 == c2:
+        result = np.add(m1,m2)
+    else:
+        print("Incompatible matrix addition")
+elif op == '-':
+    if r1 == r2 and c1 == c2:
+        result = np.subtract(m1,m2)
+    else:
+        print("Incompatible matrix subtraction")
+
+elif op == '*':
+    if c1 != r2:
+        print("Incompatible matrix multiplication")
+    else:
+        result = np.matmul(m1,m2)
+print(result)
+
+a=9-12/3+3*2-1
+#a=?
+a=9-4+3*2-1
+a=9-4+6-1
+a=5+6-1
+a=11-1
+a=10
+
+a=2*3+4%5-3//2+6
+a=6+4-1+6
+a=10-1+6
+a=15
+print(a)
+
+m=-43|8&0|-2
+m=-43|0|-2
+m=1|-2
+m=1
+print(m)
+
+for i in range(1,11):
+    print(f"2 x {i}={2 * i}")
+
+a=[17,14,5,20,12]
+temp=0
+for i in range(0,len(a)-1):
+    for j in range(i+1,len(a)):
+        if a[i]>a[j]:
+          temp=a[i]
+          a[i]=a[j]
+          a[j]=temp
+print(a)
+
+a=[1,2,3,4,5,6,7,8,9,10]
+iteam=int(input("enter  no to find"))
+first=0
+last=10  
+step=0
+while(first<=last):
+    mid=(last+first)//2
+    if(iteam==a[mid]):
+        flag=1
+        step+=1
+        break
+    elif(iteam > a[mid]):
+        first=mid+1
+        step+=1
+    else:
+       last=mid-1
+       step+=1
+if(flag==1):
+    print("number found")
+    print("step",step)
+    
+else:
+    print(404)
+    
+    # Binary Search in python
+
+
+def binarySearch(array, x, low, high):
+
+    if high >= low:
+
+        mid = low + (high - low)//2
+
+        # If found at mid, then return it
+        if x == array[mid]:
+            return mid
+
+        # Search the right half
+        elif x > array[mid]:
+            return binarySearch(array, x, mid + 1, high)
+
+        # Search the left half
+        else:
+            return binarySearch(array, x, low, mid - 1)
+
+    else:
+        return -1
+
+
+array = [3, 4, 5, 6, 7, 8, 9]
+x = 4
+
+result = binarySearch(array, x, 0, len(array)-1)
+
+if result != -1:
+    print("Element is present at index " + str(result))
+else:
+    print("Not found")
+
+def add():
+    a=int(input("enter a"))
+    b=int(input("enter b"))
+    c=a+b 
+    print(c)
+add()
+
+def add(a,b):
+    c=a+b
+    print(c)
+a=int(input("enter a"))
+b=int(input("enter b"))
+add(a,b)
+
+a=int(input("enter a value"))
+b=int(input("enter a value"))
+c=a
+a=b
+b=c
+print("a=",a,"b=",b)
+
+import math
+x1=int(input("enter x1"))
+y1=int(input("enter y1"))
+x2=int(input("enter x2"))
+y2=int(input("enter y2"))
+distance = math.sqrt((x2-x1**2)+((y2-y1)**2))
+print(distance)
+
+
+r1 = int(input("Enter no of rows of the matrix: "))
+c1 = int(input("Enter no of columns of the matrix: "))
+r2 = int(input("Enter no of rows of the matrix: "))
+c2 = int(input("Enter no of columns of the matrix: "))
+
+print(f"Give {r1*c1} values for matrix 1: ")
+
+row = []
+array1 = []
+array2 = []
+
+#for array 1
+for i in range(c1):
+    for j in range(r1):
+        row.append(int(input("")))
+    array1.append(row)
+    row = []
+m1 = np.array(array1)
+print(m1)
+#for array 2
+
+print(f"Give {r1*c1} values for matrix 1: ")
+for i in range(c2):
+    for j in range(r2):
+        row.append(int(input("")))
+    array2.append(row)
+    row = []
+m2 = np.array(array2)
+print(m2)
+
+op = input("Enter the operation you want to perform(+,-,*): ")
+result = 0
+if op == '+':
+    if r1 == r2 and c1 == c2:
+        result = np.add(m1,m2)
+    else:
+        print("Incompatible matrix addition")
+elif op == '-':
+    if r1 == r2 and c1 == c2:
+        result = np.subtract(m1,m2)
+    else:
+        print("Incompatible matrix subtraction")
+
+elif op == '*':
+    if c1 != r2:
+        print("Incompatible matrix multiplication")
+    else:
+        result = np.matmul(m1,m2)
+print(result)
+
+celsius=int(input("enter temperature in celsius"))
+fahrenheit=(1.8*celsius)+32
+print("temperature in fahrenheit:",fahrenheit)
+
+import math
+A=[[1,2,3],
+   [3,4,5],
+   [5,6,7]]
+B=[[3,2,1],
+   [7,6,5],
+   [6,5,4]]
+result=[[0,0,0],
+        [0,0,0],
+        [0,0,0]]
+for i in range(len(A)):
+    for j in range(len(B[0])):
+        for k in range(len(B)):
+            result[i][j] += A[i][k] * B[k][j]
+for r in result:            
+ print(r)
+
 
 
