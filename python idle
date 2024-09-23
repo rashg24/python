@@ -276,5 +276,152 @@ for i in range(len(A)):
 for r in result:            
  print(r)
 
+n=eval(input("enter a"))
+ for i in range(1,n,1):
+    if(i%5==0 and i%10!=0):
+  print(i)
 
+ a=0
+ b=1
+ a=eval(input("enter the number of terms:"))
+ print("Fibonacci Series:")
+ print(a,b)
+ for i in range(1,n,1):
+    c=a+b 
+    print(c)
+    a=b  
+    b=c
+
+ n=eval(input("enter a number:"))
+ for i in range(1,n+1,1):
+    if(n%i==0):
+       print(i)
+
+ n=eval(input("enter a number"))
+ sum=0
+ for i in range(1,n,1):
+     if(n%i==0):
+         sum=sum+i
+ if(sum==n):
+     print("the number is perfect")
+ else:
+     print("the number is not perfect number")
+
+ numbers=int(input("enter no of prime numbers to be displayed:"))
+ count=1
+ n=2  
+ while(count<=numbers):
+     for i in range(2,n):
+        if(n%1==0):
+             break
+     else:
+         print(n)    
+         count=count+1
+         n=n+1
+
+ for i in "welcome":
+     if(i=="c"):
+         break
+     print(i)
+
+import numpy
+
+
+def matrix(m, n):
+    d = []
+    for i in range(0, m):
+        l = []
+        for j in range(0, n):
+            v = int(input(f"Enter a{i + 1}{j + 1} = "))
+            l.append(v)
+        d.append(l)
+    return numpy.array(d)
+
+
+def minor(m, n, matrix_name, minor_value):
+    minor_data = []
+    for i in range(0, m):
+        temp = []
+        for j in range(0, n):
+            if i != minor_value[0] and j != minor_value[1]:
+                q = matrix_name[i][j]
+                temp.append(q)
+        if temp != []:
+            minor_data.append(temp)
+    return numpy.array(minor_data)
+
+
+def cofactor(m, n, matrix_name):
+    cofactor_data = []
+    for i in range(0, m):
+        temp = []
+        for j in range(0, n):
+            minor_value = (i, j)
+            minor_matrix = minor(m, n, matrix_name, minor_value)
+            if m == 3:
+                c = ((-1) ** (i + j)) * (minor_matrix[0][0] * minor_matrix[1][1] - minor_matrix[0][1] * minor_matrix[1][0])
+            elif m == 2:
+                c = ((-1) ** (i + j)) * (minor_matrix[0][0])
+            temp.append(c)
+        cofactor_data.append(temp)
+    return numpy.array(cofactor_data)
+
+
+def det(m, n, cofactor_name, matrix_name):
+    i = 0
+    det_value = 0
+    for j in range(0, n):
+        det_value += cofactor_name[i][j] * matrix_name[i][j]
+    return det_value
+
+
+m1 = int(input("Enter Number of rows of the First Matrix = "))
+n1 = int(input("Enter Number of columns of the First Matrix = "))
+matrix1 = matrix(m1, n1)
+m2 = int(input("Enter Number of rows of the Second Matrix = "))
+n2 = int(input("Enter Number of columns of the Second Matrix = "))
+matrix2 = matrix(m2, n2)
+print(matrix1)
+print(matrix2)
+op = input("Enter operation (+, -, *, adj, det, inv) = ")
+if m1 == m2 and n1 == n2:
+    if op == "+":
+        print(matrix1 + matrix2)
+    elif op == "-":
+        print(matrix1 - matrix2)
+if n1 == m2 and op == "*":
+    e = []
+    r = []
+    cell_total = 0
+    for i in range(0, m1):
+        for j in range(0, n2):
+            for k in range(0, n1):
+                q = matrix1[i][k] * matrix2[k][j]
+                cell_total += q
+            e.append(cell_total)
+            cell_total = 0
+        r.append(e)
+        e = []
+    product = numpy.array(r)
+    print(f"Multiplication of Matrices is \n{product}")
+if op == "adj" or op == "inv" or op == "det" or op == "t":
+    which_one = input("Which matrix (First / Second)?").lower()
+    if which_one == "first":
+        m_, n_ = m1, n1
+        matrix_ = matrix1
+    elif which_one == "second":
+        m_, n_ = m2, n2
+        matrix_ = matrix2
+    cofactor_result = cofactor(m_, n_, matrix_)
+    adj = cofactor_result.transpose()
+    det_ = det(m_, n_, cofactor_result, matrix_)
+    if op == "adj":
+        print(adj)
+    elif op == "det":
+        print(det_)
+    elif op == "inv":
+        inv_ = adj/det_
+        print(inv_)
+    elif op == "t":
+        print(matrix_.transpose())
 
