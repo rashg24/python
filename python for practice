@@ -1,34 +1,88 @@
-print('hello world')
-list=[1,'two',3]
-dict={'one':1,'two':2,'three':3}
-print(list,dict)
-print(5/12)
-len('i am')
+# print('hello world')
+# list=[1,'two',3]
+# dict={'one':1,'two':2,'three':3}
+# print(list,dict)
+# print(5/12)
+# len('i am')
 
-string='I returned a bag of groceries'
-print (string[0])
-print (string[2:10])
-print (string[-1])
-print (string[13:])
-print (string[-9:])
-print (string[:-9])
+# string='I returned a bag of groceries'
+# print (string[0])
+# print (string[2:10])
+# print (string[-1])
+# print (string[13:])
+# print (string[-9:])
+# print (string[:-9])
 
-list=[1,2,3]
-more=[11,12,13]
-print(list)
-print(more)
-list.sort()
-list.append(4)
-list.append(('5a','5b'))
-list.extend(more)
-list.index(11)
-list.insert(5,'six')
-list.pop()
-list.pop(4)
-list.remove('six')
-list.reverse()
+# list=[1,2,3]
+# more=[11,12,13]
+# print(list)
+# print(more)
+# list.sort()
+# list.append(4)
+# list.append(('5a','5b'))
+# list.extend(more)
+# list.index(11)
+# list.insert(5,'six')
+# list.pop()
+# list.pop(4)
+# list.remove('six')
+# list.reverse()
 
-greeting=['hello','world']
-a=list(greeting)
-print(a)
+# greeting=['hello','world']
+# a=list(greeting)
+# print(a)
+
+# celsius=int(input("enter temperature in celsius"))
+# fahrenheit=(1.8*celsius)+32
+# print("temperature in fahrenheit:",fahrenheit)
+
+# Sub1=int(input("enter marks of Subject 1 :"))
+# Sub2=int(input("enter marks of Subject 2 :"))
+# Sub3=int(input("enter marks of Subject 3 :"))
+# Sub4=int(input("enter marks of Subject 4 :"))
+# Sub5=int(input("enter marks of Subject 5 :"))
+# Avg=(Sub1+Sub2+Sub3+Sub4+Sub5)/5
+# print(Avg)
+
+# a=int(input("enter a value"))
+# b=int(input("enter a value"))
+# c=a
+# a=b
+# b=c
+# print("a=",a,"b=",b)
+
+# x = 150
+# y = 270
+# x = x ^ y
+# y = x ^ y
+# x = x ^ y
+# print("Value of x:", x)
+# print("Value of y:", y)
+
+# a=0
+# b=1
+# a=eval(input("enter the number of terms:"))
+# print("Fibonacci Series:")
+# print(a,b)
+# for i in range(1,n,1):
+#    c=a+b 
+#    print(c)
+#    a=b  
+#    b=c
+
+# number=int(input("enter a number :"))
+# if number%2==0:
+#     print("number is even")
+# else:
+#     print("not even")
+
+# number=int(input("enter a number"))
+# last_digit=number%10
+# print("the last digit of",number,"is",last_digit)
+
+# number=int(input("enter a number :"))
+# if number%5==0:
+#     print("the number is divisible by 5")
+# else:
+#     print("the number is not divisible by 5")
 
