@@ -337,6 +337,9 @@ else:
 # solution = Rectangle(length, width)
 
 
+
+#
+#to convert an image's pixel data into a CSV file
 from PIL import Image
 import csv
 
@@ -371,3 +374,87 @@ image_to_csv(image_path, csv_path)
 print(f"Pixel data has been saved to {csv_path}")
 
 
+
+#Subtracting the background from an image
+import cv2
+import numpy as np
+
+def subtract_background(image_path, output_path, blur=5):
+    # Read the input image
+    img = cv2.imread(image_path)
+    
+    if img is None:
+        print("Error: Image not found.")
+        return
+
+    # Convert the image to grayscale
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+    # Apply Gaussian blur to smooth the image
+    blurred = cv2.GaussianBlur(gray, (blur, blur), 0)
+
+    # Use a threshold to create a binary mask of the background
+    _, mask = cv2.threshold(blurred, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+
+    # Invert the mask to focus on the foreground
+    mask_inv = cv2.bitwise_not(mask)
+
+    # Apply the mask to the original image
+    foreground = cv2.bitwise_and(img, img, mask=mask_inv)
+
+    # Save the result
+    cv2.imwrite(output_path, foreground)
+    print(f"Background subtracted image saved to: {output_path}")
+
+# Example usage
+input_image = "input.jpg"  # Replace with your image path
+output_image = "output.jpg"  # Replace with your desired output path
+
+subtract_background(input_image, output_image)
+
+
+
+#edge detection of an image from canny and sobel algorithms
+import cv2
+import numpy as np
+from matplotlib import pyplot as plt
+
+def edge_detection(image_path):
+    # Load the image in grayscale
+    img = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+    if img is None:
+        print("Error: Image not found.")
+        return
+
+    # Apply Canny Edge Detection
+    edges_canny = cv2.Canny(img, threshold1=100, threshold2=200)
+
+    # Apply Sobel Edge Detection
+    # Sobel calculates gradients in X and Y directions
+    sobelx = cv2.Sobel(img, cv2.CV_64F, 1, 0, ksize=3)  # Gradient in X
+    sobely = cv2.Sobel(img, cv2.CV_64F, 0, 1, ksize=3)  # Gradient in Y
+    sobel_combined = cv2.magnitude(sobelx, sobely)  # Combine gradients
+
+    # Convert gradients to 8-bit format for display
+    sobel_combined = cv2.convertScaleAbs(sobel_combined)
+
+    # Display Results
+    titles = ['Original Image', 'Canny Edges', 'Sobel Edges']
+    images = [img, edges_canny, sobel_combined]
+
+    plt.figure(figsize=(12, 6))
+    for i in range(3):
+        plt.subplot(1, 3, i + 1)
+        plt.imshow(images[i], cmap='gray')
+        plt.title(titles[i])
+        plt.axis('off')
+    plt.tight_layout()
+    plt.show()
+
+# Example Usage
+image_path = "input.jpg"  # Replace with your image path
+edge_detection(image_path)
+
+
+
+#
