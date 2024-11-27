@@ -297,32 +297,32 @@ for i in range(1,n+1,1):
    if(n%i==0):
       print(i)
 
-# n=eval(input("enter a number"))
-# sum=0
-# for i in range(1,n,1):
-#     if(n%i==0):
-#         sum=sum+i
-# if(sum==n):
-#     print("the number is perfect")
-# else:
-#     print("the number is not perfect number")
+ n=eval(input("enter a number"))
+ sum=0
+ for i in range(1,n,1):
+     if(n%i==0):
+         sum=sum+i
+ if(sum==n):
+print("the number is perfect")
+ else:
+     print("the number is not perfect number")
 
-# numbers=int(input("enter no of prime numbers to be displayed:"))
-# count=1
-# n=2  
-# while(count<=numbers):
-#     for i in range(2,n):
-#        if(n%1==0):
-#             break
-#     else:
-#         print(n)    
-#         count=count+1
-#         n=n+1
+ numbers=int(input("enter no of prime numbers to be displayed:"))
+ count=1
+ n=2  
+ while(count<=numbers):
+     for i in range(2,n):
+        if(n%1==0):
+             break
+     else:
+         print(n)    
+         count=count+1
+         n=n+1
 
-# for i in "welcome":
-#     if(i=="c"):
-#         break
-#     print(i)
+ for i in "welcome":
+     if(i=="c"):
+         break
+     print(i)
 
 import numpy
 
