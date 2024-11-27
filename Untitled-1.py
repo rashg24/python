@@ -18,6 +18,7 @@ m=1|-2
 m=1
 print(m)
 
+
 for i in range(1,11):
     print(f"2 x {i}={2 * i}")
 
@@ -30,6 +31,7 @@ for i in range(0,len(a)-1):
           a[i]=a[j]
           a[j]=temp
 print(a)
+
 
 a=[1,2,3,4,5,6,7,8,9,10]
 iteam=int(input("enter  no to find"))
@@ -54,6 +56,7 @@ if(flag==1):
     
 else:
     print(404)
+
 
 # def minor(m, n, matrix_name, minor_value):
 #     minor_data = []
@@ -144,6 +147,7 @@ else:
 
 ##
 
+
 # import cmath #for handeling complex square roots
 
 # def solve_quadratic(a,b,c):
@@ -211,6 +215,7 @@ else:
     
 #     return complex(real_part, imag_part)
 
+
 # # Example usage
 # numerator = complex(2, 3)
 # denominator = complex(1, 2)
@@ -246,6 +251,7 @@ else:
 #             a[j]=temp
 #             print("list after sorting is: ",a)
 
+
 # a=[1,2,3,4,5]
 # i=0
 # sum=0
@@ -254,10 +260,12 @@ else:
 #     i=i+1
 # print(sum)
 
+
 # a=1
 # while(a==1):
 #     n=int(input("enter the number"))
 #     print("you entered",n)
+
 
 # num1=int(input("enter num1 : "))
 # num2=int(input("enter num2 : "))
@@ -266,6 +274,7 @@ else:
 #         a,b = b, a % b
 #     return a
 # print(f"the GCD of {num1} and {num2} is {gcd(num1, num2)}")
+
 
 # num1=int(input("enter num1 : "))
 # num2=int(input("enter num2 : "))
@@ -277,12 +286,14 @@ else:
 #     return gcd_value
 # print(f"the GCD of {num1} and {num2} is {gcd(num1, num2)}")
 
+
 # a=int(input("enter a : "))
 # b=int(input("enter b : "))
 # for i in range (1,a+1):
 #     if(a%i==0 and b%i==0):
 #         gcd=i
 # print(gcd)
+
 
 # def find_gcd(x,y):
 #     if (y==0):
@@ -294,5 +305,69 @@ else:
 # num= find_gcd(x,y)
 # print("GCD of two number is: ")
 # print(num)      
+
+
+# def fibonacci(n):             # Function to calculate the n-th Fibonacci number
+#      a, b = 0, 1              # Initial values of the first two Fibonacci numbers, 0 and 1
+#      for _ in range(n):       # Loop to calculate the n-th Fibonacci number
+#           a, b = b, a + b     # Update a and b to the next Fibonacci numbers in sequence
+#      return a                 # Return the n-th Fibonacci number
+
+
+# n = int(input("enter the number"))  # Get user input for which Fibonacci number to calculate
+# print("fibonacci number", fibonacci(n))  # Output the result
+
+
+# class Rectangle:
+#     def __init__(self, length, width):
+#         self.length = length
+#         self.width = width
+
+#     def calculate_area(self):
+#         return self.length * self.width
+
+#     def calculate_perimeter(self):
+#         return 2 * (self.length + self.width)
+
+# # Taking user input
+# length = float(input("Enter the length of the rectangle: "))
+# width = float(input("Enter the width of the rectangle: "))
+
+# # Creating a Rectangle object with the user input
+# solution = Rectangle(length, width)
+
+
+from PIL import Image
+import csv
+
+def image_to_csv(image_path, csv_path):
+    # Open the image
+    with Image.open(image_path) as img:
+        # Ensure the image is in RGB format
+        img = img.convert("RGB")
+        # Get the image dimensions
+        width, height = img.size
+        pixels = img.load()
+        
+        # Open a CSV file to write
+        with open(csv_path, mode='w', newline='') as csv_file:
+            writer = csv.writer(csv_file)
+            # Write the header row
+            writer.writerow(["X", "Y", "R", "G", "B"])
+            
+            # Write pixel data
+            for y in range(height):
+                for x in range(width):
+                    r, g, b = pixels[x, y]
+                    writer.writerow([x, y, r, g, b])
+
+# Specify the paths
+image_path = "path_to_image.jpg"  # Replace with your image path
+csv_path = "output_pixels.csv"  # Replace with your desired CSV file path
+
+# Convert image to CSV
+image_to_csv(image_path, csv_path)
+
+print(f"Pixel data has been saved to {csv_path}")
 
 
